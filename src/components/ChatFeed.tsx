@@ -66,7 +66,7 @@ const ChatFeed: React.FC<IComponentProps> = (props: any) => {
                     {chat?.title}
                 </div>
                 <div className='chat-subtitle'>
-                    {chat?.people.map((person: any) => `${person.person.userName}`)}
+                    {chat?.people.map((person: any) => `${person.person.username}`)}
                 </div>
                 {renderMessages()}
                 <div style={{ height: '100px' }} />
