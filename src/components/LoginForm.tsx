@@ -42,15 +42,15 @@ const LoginForm = () => {
                         className='input'
                         placeholder='password'
                         required />
-                    <div>
+                    <div style={{ textAlign: 'center' }}>
                         <button type='submit' className='button'>
                             <span>Start Chatting</span>
                         </button>
                     </div>
                     <h2 className='error'>{error}</h2>
                 </form>
-            </div>
-        </div>
+            </div >
+        </div >
     )
 }
 export default LoginForm
