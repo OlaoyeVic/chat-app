@@ -14,7 +14,16 @@ const ChatFeed: React.FC<IComponentProps> = (props: any) => {
     const { chats, activeChat, userName, messages } = props
 
     const chat = chats && chats[activeChat]
-    console.log(chat, userName, messages)
+    // console.log(chat, userName, messages)
+
+    // const renderReadReceipts = (message: { id: any; sender: { avatar: any } }, isMyMessage: any) => chat.people.map((person: { last_read: any; person: { avatar: any } }, index: any) => person.last_read === message.id && (
+    //     <div key={`read_${index}`}
+    //         className='read-receipt'
+    //         style={{
+    //             float: isMyMessage ? 'right' : 'left',
+    //             backgroundImage: person.person.avatar && `url(${person?.person?.avatar})`
+    //         }} />
+    // ))
 
     const renderReadReceipts = (message: any, isMyMessage: any) => {
         return chat.people.map((person: { last_read: any; person: { avatar: any } }, index: any) => person.last_read === message.id && (
@@ -22,14 +31,14 @@ const ChatFeed: React.FC<IComponentProps> = (props: any) => {
                 className='read-receipt'
                 style={{
                     float: isMyMessage ? 'right' : 'left',
-                    backgroundImage: person.person.avatar && `url(${message?.sender?.avatar})`
+                    backgroundImage: person.person.avatar && `url(${person?.person?.avatar})`
                 }} />
         ))
     }
 
     const renderMessages = () => {
         const keys = Object.keys(messages)
-        console.log(keys)
+        // console.log(keys)
         return keys.map((key, index) => {
             const message = messages[key]
             const lastMessageKey: any = index === 0 ? null : keys[index - 1]
