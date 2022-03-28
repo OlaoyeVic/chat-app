@@ -6,7 +6,7 @@ import ChatFeed from './components/ChatFeed';
 import LoginForm from './components/LoginForm';
 
 function App() {
-  if (!localStorage.getItem('username')) return <LoginForm />
+  if (!localStorage.getItem('username') || !localStorage.getItem('password')) return <LoginForm />
   return (
     <ChatEngine
       height="100vh"

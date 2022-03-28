@@ -15,10 +15,12 @@ const MessageForm = (props: { chatId: any; creds: any }) => {
         event.preventDefault()
         const text = value.trim()
         if (text.length > 0) sendMessage(creds, chatId, { text })
+
+        setValue('')
     }
 
-    const handleUpload = (event: { target: { value: any; }; }) => {
-        sendMessage(creds, chatId, { files: event.target.value, text: '' })
+    const handleUpload = (event: { target: { files: any; }; }) => {
+        sendMessage(creds, chatId, { files: event.target.files, text: '' })
     }
 
     return (

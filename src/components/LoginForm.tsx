@@ -9,7 +9,7 @@ const LoginForm = () => {
     const handleSubmit = async (event: { preventDefault: () => void }) => {
         event.preventDefault()
         const authObject = {
-            'PROJECT-ID': "38c7fe93-f2f5-48db-a2a1-be1ca527bec8",
+            'PROJECT-ID': "c1cb2bbc-9444-4f4c-af62-e7dcb4f62497",
             'User-Name': "Vickstar",
             'User-Secret': "victor"
         }

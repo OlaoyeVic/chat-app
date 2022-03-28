@@ -1,5 +1,4 @@
 import React from 'react'
-import { IntrinsicElementsKeys } from 'styled-components'
 import MessageForm from './MessageForm'
 import MyMessage from './MyMessage'
 import TheirMessage from './TheirMessage'
@@ -18,12 +17,12 @@ const ChatFeed: React.FC<IComponentProps> = (props: any) => {
     console.log(chat, userName, messages)
 
     const renderReadReceipts = (message: any, isMyMessage: any) => {
-        return chat.people.map((person: { last_read: any }, index: any) => person.last_read === message.id && (
+        return chat.people.map((person: { last_read: any; person: { avatar: any } }, index: any) => person.last_read === message.id && (
             <div key={`read_${index}`}
                 className='read-receipt'
                 style={{
                     float: isMyMessage ? 'right' : 'left',
-                    backgroundImage: `person.person.avatar && url(${message?.sender?.avatar})`
+                    backgroundImage: person.person.avatar && `url(${message?.sender?.avatar})`
                 }} />
         ))
     }
@@ -32,7 +31,7 @@ const ChatFeed: React.FC<IComponentProps> = (props: any) => {
         const keys = Object.keys(messages)
         console.log(keys)
         return keys.map((key, index) => {
-            const message: any | [] = messages[key]
+            const message = messages[key]
             const lastMessageKey: any = index === 0 ? null : keys[index - 1]
             const isMyMessage = userName === message.sender.username
 
@@ -56,7 +55,7 @@ const ChatFeed: React.FC<IComponentProps> = (props: any) => {
         })
     }
 
-    renderMessages()
+    // renderMessages()
     if (!chat) return <p>Loading ...</p>
 
     return (
@@ -66,7 +65,7 @@ const ChatFeed: React.FC<IComponentProps> = (props: any) => {
                     {chat?.title}
                 </div>
                 <div className='chat-subtitle'>
-                    {chat?.people.map((person: any) => `${person.person.username}`)}
+                    {chat?.people.map((person: any) => ` ${person.person.username}`)}
                 </div>
                 {renderMessages()}
                 <div style={{ height: '100px' }} />
